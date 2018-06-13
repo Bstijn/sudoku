@@ -1,6 +1,4 @@
-package Client;
-
-import javafx.scene.control.TextField;
+package ClientWS;
 
 public interface IPlayerClient {
    void getLobbiesFromServer();

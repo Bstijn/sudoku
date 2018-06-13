@@ -1,6 +1,6 @@
 package GUI;
 
-import Client.ILobbyClient;
+import ClientWS.ILobbyClient;
 
 import java.util.ArrayList;
 

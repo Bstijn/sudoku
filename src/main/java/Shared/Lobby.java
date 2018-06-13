@@ -1,6 +1,6 @@
 package Shared;
 
-import Client.ILobbyClient;
+import ClientWS.ILobbyClient;
 import Logic.Cell;
 import Logic.GenerationFaultException;
 import Logic.Sudoku;
@@ -8,9 +8,6 @@ import Server.ILobbyServer;
 import Server.IPlayerServer;
 import Server.IServerWS;
 import Server.ISudokuServer;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 
 import javax.websocket.Session;
 import java.util.ArrayList;
@@ -46,7 +43,7 @@ public class Lobby implements ILobbyServer, ILobbyClient {
 
     public void fillCell(Session session, int number, Cell cell){
         if(sudoku.filCell(number,cell)){
-            server.sendFillToOthers(number,cell);
+            server.sendFillToOthers(session,number,cell);
         }
         else{
             server.sendInvalidToFiller(session);

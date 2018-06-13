@@ -1,4 +1,4 @@
-package Client;
+package ClientWS;
 
 import java.util.ArrayList;
 

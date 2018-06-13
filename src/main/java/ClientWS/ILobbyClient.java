@@ -1,6 +1,4 @@
-package Client;
-
-import Logic.ISudoku;
+package ClientWS;
 
 public interface ILobbyClient {
     String toString();

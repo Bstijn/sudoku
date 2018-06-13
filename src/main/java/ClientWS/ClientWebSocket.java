@@ -1,4 +1,4 @@
-package Client;
+package ClientWS;
 
 import Shared.Lobby;
 import com.google.gson.JsonObject;

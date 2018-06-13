@@ -1,6 +1,5 @@
 package Server;
 
-import Client.IplayerSocket;
 import Logic.Cell;
 import RestServer.GeneratorRequester;
 import Shared.Lobby;
@@ -179,7 +178,7 @@ public class ServerWebSocket implements IServerWS {
     @Override//TODO FINISH
     public void sendFillToOthers(Session session,int Number, Cell cell) {
         IPlayerServer player = getPlayer(session);
-        ILobbyServer lobby = null
+        ILobbyServer lobby = null;
         for(ILobbyServer l : lobbies){
             if(l.getplayers().contains(player)){
                 lobby = l;
@@ -188,7 +187,7 @@ public class ServerWebSocket implements IServerWS {
         }
         if(lobby.getSudoku().filCell(Number,cell)) {
             JsonObject json = new JsonParser().parse(new Gson().toJson(cell)).getAsJsonObject();
-            json.add("Fill",true);
+            json.addProperty("Fill",true);
             for (IPlayerServer p : lobby.getplayers()) {
                 try {
                     p.getSession().getBasicRemote().sendText(json.toString());

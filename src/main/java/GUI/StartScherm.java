@@ -1,13 +1,11 @@
 package GUI;
 
-import Client.ILobbyClient;
-import Client.IPlayerClient;
-import Client.IClientSocket;
+import ClientWS.ILobbyClient;
+import ClientWS.IPlayerClient;
+import ClientWS.IClientSocket;
 import Shared.Player;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -18,7 +16,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -35,8 +32,6 @@ public class StartScherm extends Application implements Initializable, IStartSch
     public ComboBox cbGameCreationSelector;
     public TextField tfPassword;
     public Label lblPassword;
-    private IClientSocket socket;
-
     public Pane paneLobbys;
     public ListView lvPublicGames;
     private IPlayerClient player;
@@ -73,7 +68,6 @@ public class StartScherm extends Application implements Initializable, IStartSch
             cbChanged();
         });
         final IStartScherm me = (IStartScherm)this;
-        player = new Player(me);
     }
 
     public void createLobby(MouseEvent mouseEvent) {

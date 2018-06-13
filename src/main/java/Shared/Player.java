@@ -1,9 +1,9 @@
 package Shared;
 
-import Client.*;
+import ClientWS.*;
+import GUI.Controller;
 import GUI.IStartScherm;
 import Server.IPlayerServer;
-import javafx.scene.control.TextField;
 
 import javax.websocket.Session;
 import java.util.ArrayList;
@@ -17,10 +17,13 @@ public class Player implements IPlayerClient, IPlayerServer, IplayerSocket {
     public Player(Session session){
         this.session = session;
     }
+    private Controller controller;
 
-    public Player(IStartScherm startScherm){
-        this.startScherm = startScherm;
-        this.client = new ClientWebSocket((IplayerSocket) this);
+    public Player(Controller controller) {
+        this.controller = controller;
+        if (this.client == null) {
+            this.client = new ClientWebSocket((IplayerSocket) this);
+        }
     }
 
     public Player(String name){

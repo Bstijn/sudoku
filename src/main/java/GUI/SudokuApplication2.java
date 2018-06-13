@@ -1,7 +1,6 @@
 package GUI;
-import Client.IPlayerClient;
+import ClientWS.IPlayerClient;
 import Logic.*;
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -21,9 +19,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import javax.swing.text.Highlighter;
 import java.net.URL;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 public class SudokuApplication2 extends Application implements Initializable, Guiable
@@ -43,14 +39,6 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
 
     private int selectednr;
 
-    public SudokuApplication2(IPlayerClient player,final Stage stage) {
-        this.player = player;
-        try {
-            this.start(stage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void start(final Stage primaryStage) throws Exception

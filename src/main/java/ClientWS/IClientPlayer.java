@@ -1,4 +1,4 @@
-package Client;
+package ClientWS;
 
 public interface IClientPlayer {
     void requestLobbies();
