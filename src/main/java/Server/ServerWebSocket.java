@@ -1,9 +1,11 @@
 package Server;
 
+import Client.IplayerSocket;
 import Logic.Cell;
 import RestServer.GeneratorRequester;
 import Shared.Lobby;
 import Shared.Player;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -174,14 +176,41 @@ public class ServerWebSocket implements IServerWS {
 
     }
 
-    @Override
-    public void sendFillToOthers(int Number, Cell cell) {
-
+    @Override//TODO FINISH
+    public void sendFillToOthers(Session session,int Number, Cell cell) {
+        IPlayerServer player = getPlayer(session);
+        ILobbyServer lobby = null
+        for(ILobbyServer l : lobbies){
+            if(l.getplayers().contains(player)){
+                lobby = l;
+                break;
+            }
+        }
+        if(lobby.getSudoku().filCell(Number,cell)) {
+            JsonObject json = new JsonParser().parse(new Gson().toJson(cell)).getAsJsonObject();
+            json.add("Fill",true);
+            for (IPlayerServer p : lobby.getplayers()) {
+                try {
+                    p.getSession().getBasicRemote().sendText(json.toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else{
+            sendInvalidToFiller(session);
+        }
     }
 
     @Override
     public void sendInvalidToFiller(Session session) {
-
+        JsonObject json = new JsonObject();
+        json.addProperty("Wrong",true);
+        try {
+            session.getBasicRemote().sendText(json.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void broadcast(String s) {

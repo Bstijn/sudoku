@@ -1,4 +1,5 @@
 package GUI;
+import Client.IPlayerClient;
 import Logic.*;
 import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import javafx.application.Application;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -37,8 +39,18 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
     private int lastY;
     private  Cell selectedCell = null;
     private Rectangle lastHighlighted = null;
+    private IPlayerClient player;
 
     private int selectednr;
+
+    public SudokuApplication2(IPlayerClient player,final Stage stage) {
+        this.player = player;
+        try {
+            this.start(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void start(final Stage primaryStage) throws Exception
@@ -117,7 +129,7 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
                     public void handle(MouseEvent event)
                     {
                         event.consume();
-                        nrSelect(event,x);
+                        nrSelect(x);
                     }
                 });
 
@@ -162,7 +174,7 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
     }
 
 
-    private void nrSelect(MouseEvent event,int nr){
+    private void nrSelect(int nr){
         if(selectedCell != null) {
             if(sudoku.filCell(nr, selectedCell)){
                 rectangles[selectedCell.getPosX()][selectedCell.getPosY()].setFill(new ImagePattern(new Image(selectedCell.getHighlightImageString())));

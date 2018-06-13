@@ -18,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -39,6 +40,8 @@ public class StartScherm extends Application implements Initializable, IStartSch
     public Pane paneLobbys;
     public ListView lvPublicGames;
     private IPlayerClient player;
+    private static Stage stage;
+    private static Parent root;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -46,6 +49,8 @@ public class StartScherm extends Application implements Initializable, IStartSch
         primaryStage.setTitle("LobbyBrowser");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        this.stage =primaryStage;
+        this.root = root;
     }
 
     public void refreshClick(MouseEvent mouseEvent) {
