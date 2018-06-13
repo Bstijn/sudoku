@@ -82,3 +82,7 @@ buildNumber.properties
 
 
 # End of https://www.gitignore.io/api/maven,intellij
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/workspace.xml
+*.xml
