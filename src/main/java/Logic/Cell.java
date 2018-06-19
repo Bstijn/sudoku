@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 public class Cell {
 
     private static final String emptystring = "empty.png";
-    private static final String emptyHighlightString = "empty.png";
+    private static final String emptyHighlightString = "emptyHighlight.png";
 
     private int posX;
     private int posY;

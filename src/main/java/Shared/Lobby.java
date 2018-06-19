@@ -7,7 +7,6 @@ import Server.ILobbyServer;
 import Server.IPlayerServer;
 import Server.ISudokuServer;
 
-import javax.websocket.Session;
 import java.util.ArrayList;
 
 public class Lobby implements ILobbyServer, ILobbyClient {
@@ -16,7 +15,7 @@ public class Lobby implements ILobbyServer, ILobbyClient {
     private int Id;
     private int currentPlayers;
     private ISudokuServer sudoku;
-    private ArrayList<IPlayerServer> players = new ArrayList<IPlayerServer>();
+    private ArrayList<IPlayerServer> players = new ArrayList<>();
 
 
 
