@@ -1,6 +1,5 @@
 package Logic;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public abstract class CheckableNine {
     Cell[] cells = new Cell[9];
@@ -11,9 +10,6 @@ public abstract class CheckableNine {
         }
     }
 
-    public boolean checkNumberAvailable(int number){
-        throw new NotImplementedException();
-    }
 
     public boolean fillInCell(Cell cell,int number){
         for (Cell c : cells){
