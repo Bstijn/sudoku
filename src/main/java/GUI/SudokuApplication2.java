@@ -1,14 +1,9 @@
 package GUI;
-import ClientWS.IPlayerClient;
 import Logic.*;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,7 +13,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,15 +23,12 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
     public Pane paneNrs;
     public AnchorPane background;
     public Label labelpressed;
-    Group root = new Group();
-    Rectangle[][] rectangles = new Rectangle[9][9];
+    private Group root = new Group();
+    private Rectangle[][] rectangles = new Rectangle[9][9];
     private ISudoku sudoku;
-    private int lastX;
-    private int lastY;
     private  Cell selectedCell = null;
     private Rectangle lastHighlighted = null;
 
-    private int selectednr;
 
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -48,7 +39,6 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
                 backgroundpressed(event);
             }
         });
-        sudoku = new Sudoku(this);
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
@@ -74,7 +64,7 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
                     public void handle(MouseEvent event)
                     {
                         event.consume();
-                        CellMousePressed(event,x,y);
+                        cellMousePressed(x,y);
                     }
                 });
 
@@ -90,7 +80,6 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
                 r.setWidth(36);
                 r.setX(0 + i*36);
                 String number = "nr"+String.valueOf((i+1))+".png";
-                System.out.println(number);
                 Image image = new Image(number);
 
                 ImagePattern pattern = new ImagePattern(image);
@@ -109,26 +98,16 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
 
         }
         sudokuPane.getChildren().add(root);
-//        try {
-//            fillInSquares(sudoku.start(50));
-//        } catch (GenerationFaultException e) {
-//            e.printStackTrace();
-//        }
-        this.player.setGuiGame(this);
+
+        player.setGuiGame(this);
     }
 
-    private void CellMousePressed(MouseEvent event, int xpos, int ypos) {
-        final int x = xpos;
-        final int y = ypos;
-        System.out.println("cell pressed");
-        System.out.println("Pressed cell: x = " + x + " y:" + y);
-        lastX = x;
-        lastY = y;
+    private void cellMousePressed(int xpos, int ypos) {
         if(lastHighlighted != null){
             unHighLightLast();
         }
-        setSelectedCell(sudoku.getCells()[y][x]);
-        highlight(x,y,selectedCell);
+        setSelectedCell(sudoku.getCells()[ypos][xpos]);
+        highlight(xpos,ypos,selectedCell);
     }
 
     private void highlight(int x, int y,Cell cell) {
@@ -152,26 +131,19 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
     }
     @Override
     public void fillCell(Cell cell){
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                sudoku.filCell(cell.getNumber(),sudoku.getCells()[cell.getPosY()][cell.getPosX()]);
-                rectangles[cell.getPosX()][cell.getPosY()].setFill(new ImagePattern(new Image(cell.getHighlightImageString())));
-            }
+        Platform.runLater(() -> {
+            sudoku.filCell(cell.getNumber(),sudoku.getCells()[cell.getPosY()][cell.getPosX()]);
+            rectangles[cell.getPosX()][cell.getPosY()].setFill(new ImagePattern(new Image(cell.getHighlightImageString())));
         });
     }
     @Override
     public void filledWrongNumber(){
-        System.out.println("FilledWrongNumber method called");
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning Dialog");
-                alert.setHeaderText("The number you want to fill in is wrong.");
-                alert.setContentText("Be careful with the next step!");
-                alert.showAndWait();
-            }
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText("The number you want to fill in is wrong.");
+            alert.setContentText("Be careful with the next step!");
+            alert.showAndWait();
         });
 
 
@@ -181,21 +153,17 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
 @Override
     public void fillInSquares(Cell[][] grid) {
         sudoku = new Sudoku(grid);
-    Platform.runLater(new Runnable() {
-        @Override
-        public void run() {
-            for (Cell[] cs : grid) {
-                for (Cell c : cs) {
-                    ImagePattern pattern = new ImagePattern(new Image(c.getImageString()));
-                    rectangles[c.getPosX()][c.getPosY()].setFill(pattern);
-                }
+    Platform.runLater(() -> {
+        for (Cell[] cs : grid) {
+            for (Cell c : cs) {
+                ImagePattern pattern = new ImagePattern(new Image(c.getImageString()));
+                rectangles[c.getPosX()][c.getPosY()].setFill(pattern);
             }
         }
-        });
+    });
     }
 
     public void backgroundpressed(MouseEvent mouseEvent) {
-        System.out.println("background pressed");
         updateGuiElements();
         if(lastHighlighted != null){
             unHighLightLast();
@@ -204,6 +172,7 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
     }
 
     private void updateGuiElements() {
+        throw new UnsupportedOperationException();
     }
 
 

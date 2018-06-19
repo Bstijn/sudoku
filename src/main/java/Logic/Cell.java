@@ -4,6 +4,8 @@ import com.google.gson.JsonObject;
 
 public class Cell {
 
+    private static final String emptystring = "empty.png";
+    private static final String emptyHighlightString = "empty.png";
 
     private int posX;
     private int posY;
@@ -11,8 +13,8 @@ public class Cell {
     private boolean empty;
     private boolean fillableForPlayer = false;
     private boolean filledByPlayer = false;
-    private String imageString = "empty.png";
-    private String highlightImageString = "emptyHighlight.png";
+    private String imageString = emptystring;
+    private String highlightImageString = emptyHighlightString;
     //CONSTRUCTOR USED BY SUDOKU LOGIC MOSTLY USED BY REST API
     public Cell(int posX, int posY, int number, boolean empty){
         this.posX=posX;
@@ -58,14 +60,14 @@ public class Cell {
     public void emptyCell() {
         empty = true;
         number = 0;
-        highlightImageString = "emptyHighlight.png";
-        imageString = "empty.png";
+        highlightImageString = emptyHighlightString;
+        imageString = emptystring;
     }
     //will set it fillable for player which means the image strings will change so the GUI will not show the numbers
     public void setFillableForPlayer(){
         fillableForPlayer = true;
-        highlightImageString = "emptyHighlight.png";
-        imageString = "empty.png";
+        highlightImageString = emptyHighlightString;
+        imageString = emptystring;
 
     }
 

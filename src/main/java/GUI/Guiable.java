@@ -1,6 +1,5 @@
 package GUI;
 
-import javafx.scene.control.Cell;
 
 public interface Guiable {
 

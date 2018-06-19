@@ -1,6 +1,5 @@
 package GUI;
 
-import ClientWS.ClientWebSocket;
 import Shared.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -3,7 +3,6 @@ package ClientWS;
 import Logic.Cell;
 import Shared.Lobby;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -35,12 +34,9 @@ public class ClientWebSocket implements IClientPlayer {
     @OnOpen
     public void onOpen(Session session) {
         server = session;
-        System.out.println("connect to server");
     }
-    //TODO IMPLEMENT ALL THE KINDS OF RECIEVING
     @OnMessage
     public void onMessage(String message, Session session) {
-        System.out.println(message);
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         if(keyInJson(json,"InitLobbies")){
             fillInitLobbies(json);
@@ -102,8 +98,8 @@ public class ClientWebSocket implements IClientPlayer {
     }
 
     @OnClose
-    public void onClose(Session session) {
-        System.out.println("Server Close");
+    public void onClose(Session session) throws IOException {
+        throw new IOException();
 
     }
 
@@ -114,7 +110,7 @@ public class ClientWebSocket implements IClientPlayer {
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage());
         }
     }
 
@@ -126,7 +122,7 @@ public class ClientWebSocket implements IClientPlayer {
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage());
         }
     }
 
@@ -140,7 +136,8 @@ public class ClientWebSocket implements IClientPlayer {
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage());
+
         }
     }
 
@@ -154,7 +151,8 @@ public class ClientWebSocket implements IClientPlayer {
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage());
+
         }
     }
 
@@ -166,7 +164,8 @@ public class ClientWebSocket implements IClientPlayer {
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage());
+
         }
     }
 
@@ -178,7 +177,8 @@ public class ClientWebSocket implements IClientPlayer {
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING,e.getMessage());
+
         }
     }
 }

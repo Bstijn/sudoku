@@ -1,13 +1,10 @@
 package Logic;
 
-import GUI.Guiable;
 import Server.ISudokuServer;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,13 +14,7 @@ public class Sudoku implements ISudoku, ISudokuServer {
     private Column[] columns = new Column[9];
     private Box[] boxs = new Box[9];
     private boolean generated = false;
-    private ArrayList<Cell> filledIncells = new ArrayList();
-    private Guiable gui;
-
-    public Sudoku(Guiable gui){
-        this.gui = gui;
-        prepareSudoku();
-    }
+    private ArrayList<Cell> filledIncells = new ArrayList<>();
 
     public Sudoku(){
       prepareSudoku();
@@ -89,7 +80,6 @@ public class Sudoku implements ISudoku, ISudokuServer {
         if(!generated){
         generateTopRow();
         generateRest();
-        System.out.println("Done Generating");
         }
         if(generated) {
             removeCells(difficulty);
@@ -104,17 +94,13 @@ public class Sudoku implements ISudoku, ISudokuServer {
         while (i<difficulty){
             Cell selectedCell = cells[random.nextInt(9)][random.nextInt(9)];
             if(!selectedCell.isEmpty()){
-                //if(checkRemovability(selectedCell)){
                     selectedCell.setFillableForPlayer();
                     i++;
-                //}
             }
         }
     }
 
-    private boolean checkRemovability(Cell selectedCell) {
-    throw new NotImplementedException();
-    }
+
     //method that will generate the top row with the numbers 1-9
     private void generateTopRow(){
         int i = 0;
@@ -126,11 +112,9 @@ public class Sudoku implements ISudoku, ISudokuServer {
             if(topRow.fillInCell(currentCell,number)){
             currentCell.fill(number);
             filledIncells.add(currentCell);
-                //System.out.println("Filled In:" + i);
                 i++;
             }
         }
-        return;
     }
 
     private void generateRest() throws GenerationFaultException {
@@ -146,13 +130,11 @@ public class Sudoku implements ISudoku, ISudokuServer {
                     int numberToFillIn = giveNumberToFillIn(numbersInCns,random);
                     fillable.fill(numberToFillIn);
                     filledIncells.add(fillable);
-                    //System.out.println("FILLING CELL:X:" + fillable.getPosX() + ", Y:" + fillable.getPosY() + ", Number: " + fillable.getNumber());
                 }
                 else {
                     for (int i = 0; i < 9; i++) {
                         filledIncells.get(filledIncells.size() - 1).emptyCell();
                         filledIncells.remove(filledIncells.size() - 1);
-                        //System.out.println("RemovingCells");
                     }
                 }
 
@@ -162,7 +144,7 @@ public class Sudoku implements ISudoku, ISudokuServer {
     }
 
     private int giveNumberToFillIn(boolean[] numbers, Random random) {
-        ArrayList<Integer> numbersAvailable = new ArrayList<Integer>();
+        ArrayList<Integer> numbersAvailable = new ArrayList<>();
         for (int i = 0; i <=8; i++) {
             if(!numbers[i]){
                 numbersAvailable.add(i+1);
@@ -174,7 +156,7 @@ public class Sudoku implements ISudoku, ISudokuServer {
     //FALSE MEANS THE NUMBER IS NOT IN THE BOX NOR COLLUMN OR ROW.
     private boolean checkIfNumbersAreAvailable(boolean[] numbers) {
         for(boolean number : numbers){
-            if(number == false){
+            if(!number){
                 return true;
             }
         }
@@ -244,18 +226,6 @@ public class Sudoku implements ISudoku, ISudokuServer {
         return numbers;
     }
 
-    public void printInConsole() {
-        for (Cell[] i : cells) {
-            System.out.print("|");
-            for (Cell j : i) {
-                System.out.print(j.getNumber());
-                System.out.print("|");
-
-            }
-            System.out.println();
-        }
-    }
-
     public Cell[][] getCells(){
         return cells;
     }
@@ -270,12 +240,8 @@ public class Sudoku implements ISudoku, ISudokuServer {
     @Override
     public JsonArray toJsonArray() {
         JsonArray grid = new JsonArray();
-        JsonObject json = new JsonObject();
         for (Cell[] cs : cells){
             for(Cell c : cs){
-                System.out.println(new Gson().toJson(c));
-                int posx = c.getPosX();
-                int posy = c.getPosY();
                 JsonObject cellJson = new JsonParser().parse(new Gson().toJson(c)).getAsJsonObject();
                 grid.add(cellJson);
             }
@@ -291,7 +257,6 @@ public class Sudoku implements ISudoku, ISudokuServer {
                 }
             }
         }
-        //gui.gameEnd();
     }
 }
 

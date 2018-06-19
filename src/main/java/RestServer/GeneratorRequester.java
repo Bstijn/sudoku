@@ -3,9 +3,7 @@ package RestServer;
 import Logic.Cell;
 import Logic.Sudoku;
 import Server.ISudokuServer;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -17,9 +15,9 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 public class GeneratorRequester {
-    final String query = "http://localhost:8093/generator/give";
+    private static final String query = "http://localhost:8093/generator/give";
     public GeneratorRequester(){
-
+    //empty constructor for now maybe filled in future
     }
 
     public ISudokuServer requestSudoku(){
@@ -28,7 +26,7 @@ public class GeneratorRequester {
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(httpGet);) {
             HttpEntity entity = response.getEntity();
-            final String entityString = EntityUtils.toString(entity); System.out.println(entityString);
+            final String entityString = EntityUtils.toString(entity);
             return buildSudoku(entityString);
         } catch (IOException e) {
             // Evil, pure evil this solution: ....
@@ -42,10 +40,8 @@ public class GeneratorRequester {
         Cell[][] grid = new Cell[9][9];
         for (int i = 0;i< json.size();i++){
             Cell cell = new Cell(json.get(i).getAsJsonObject());
-            System.out.println("Y: " + cell.getPosY() +  "X:" + cell.getPosX());
             grid[cell.getPosY()][cell.getPosX()] = cell;
         }
-        ISudokuServer sudoku = new Sudoku(grid);
-        return sudoku;
+        return new Sudoku(grid);
     }
 }

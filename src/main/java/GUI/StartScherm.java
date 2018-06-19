@@ -1,19 +1,12 @@
 package GUI;
 
 import ClientWS.ILobbyClient;
-import ClientWS.IPlayerClient;
-import ClientWS.IClientSocket;
 import Shared.Player;
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -23,7 +16,6 @@ import java.util.ResourceBundle;
 
 public class StartScherm extends Controller implements Initializable, IStartScherm {
     public Button join;
-    private ArrayList<ILobbyClient> lobbies = new ArrayList<ILobbyClient>();
 
     public Button connectbutton;
     public TextField tfLobbyName;
@@ -54,7 +46,7 @@ public class StartScherm extends Controller implements Initializable, IStartSche
         cbGameCreationSelector.setOnAction((event) ->{
             cbChanged();
         });
-        final IStartScherm me = (IStartScherm)this;
+        final IStartScherm me = this;
         player = new Player(this);
         player.setIstartscherm(me);
     }
@@ -104,8 +96,6 @@ public class StartScherm extends Controller implements Initializable, IStartSche
 
     @Override
     public void updateLobbies(ArrayList<ILobbyClient> lobbies) {
-        this.lobbies = new ArrayList<>();
-        this.lobbies = lobbies;
         Platform.runLater(new Runnable() {
             public void run() {
                 lvPublicGames.getItems().setAll(lobbies);

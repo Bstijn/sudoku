@@ -30,7 +30,6 @@ public class ServerWebSocket {
 
     @OnMessage
     public void onMessage(Session session, String message) {
-        System.out.println(message);
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         if (keyInJson(json, "RequestLobbies")) {
             synchronized (lobbies) {
@@ -110,7 +109,7 @@ public class ServerWebSocket {
 
 
 
-    private int getNextLobbyId(){
+    private static int getNextLobbyId(){
         nextLobbyid++;
         return nextLobbyid;
     }
