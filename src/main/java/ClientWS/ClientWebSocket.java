@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @ClientEndpoint
-public class ClientWebSocket implements IClientSocket,IClientPlayer {
+public class ClientWebSocket implements IClientPlayer {
     private Session server;
     private Logger logger = Logger.getLogger(ClientWebSocket.class.getName());
     private ArrayList<ILobbyClient> lobbies = new ArrayList<>();

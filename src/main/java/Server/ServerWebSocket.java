@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @ServerEndpoint(value = "/sudoku")
-public class ServerWebSocket implements IServerWS {
+public class ServerWebSocket {
     private static final ArrayList<Player> players = new ArrayList<Player>();
     private static final ArrayList<ILobbyServer> lobbies = new ArrayList<ILobbyServer>();
     private static int nextLobbyid = 0;
@@ -193,7 +193,6 @@ public class ServerWebSocket implements IServerWS {
 
     }
 
-    @Override//TODO FINISH
     public void sendFillToOthers(Session session,int Number, JsonObject cellJson) {
         IPlayerServer player = getPlayer(session);
         ILobbyServer lobby = null;
@@ -235,7 +234,6 @@ public class ServerWebSocket implements IServerWS {
     }
 
 
-    @Override
     public void sendInvalidToFiller(Session session) {
         JsonObject json = new JsonObject();
         json.addProperty("Wrong",true);

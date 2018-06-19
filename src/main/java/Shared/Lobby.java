@@ -5,7 +5,6 @@ import Logic.GenerationFaultException;
 import Logic.Sudoku;
 import Server.ILobbyServer;
 import Server.IPlayerServer;
-import Server.IServerWS;
 import Server.ISudokuServer;
 
 import javax.websocket.Session;
@@ -17,16 +16,9 @@ public class Lobby implements ILobbyServer, ILobbyClient {
     private int Id;
     private int currentPlayers;
     private ISudokuServer sudoku;
-    private IServerWS server;
     private ArrayList<IPlayerServer> players = new ArrayList<IPlayerServer>();
 
-    public Lobby(String name, String password, int id, int currentPlayers, IServerWS server) {
-        this.name = name;
-        this.password = password;
-        Id = id;
-        this.currentPlayers = currentPlayers;
-        this.server = server;
-    }
+
 
     public Lobby(String name,String password, int id, int currentPlayers){
         this.name = name;
@@ -60,7 +52,7 @@ public class Lobby implements ILobbyServer, ILobbyClient {
     @Override
     public void remove(Player removingplayer) {
         players.remove(removingplayer);
-        currentPlayers =-1;
+        currentPlayers -=1;
     }
 
     @Override

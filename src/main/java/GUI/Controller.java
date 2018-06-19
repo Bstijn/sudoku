@@ -1,6 +1,5 @@
 package GUI;
 
-import ClientWS.IClientSocket;
 import ClientWS.IPlayerClient;
 import Shared.Player;
 import javafx.scene.Scene;
@@ -13,7 +12,6 @@ import java.io.IOException;
 
 public abstract class Controller{
 
-    protected IClientSocket client;
     protected Scene scene;
     protected static IPlayerClient player;
 

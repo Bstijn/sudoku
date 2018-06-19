@@ -1,5 +1,7 @@
 package Logic;
 
+import com.google.gson.JsonArray;
+
 public interface ISudoku {
     /**
      * method that will fill every cell
@@ -11,4 +13,6 @@ public interface ISudoku {
     Cell[][] getCells();
 
     boolean filCell(int nr, Cell selectedcell);
+
+    JsonArray toJsonArray();
 }

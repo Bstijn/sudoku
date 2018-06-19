@@ -2,6 +2,7 @@ package RestServer;
 
 import Logic.Cell;
 import Logic.GenerationFaultException;
+import Logic.ISudoku;
 import Logic.Sudoku;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -20,7 +21,7 @@ public class Generator {
     @GET
     @Path("give")
     public String test() {
-        Sudoku sudoku = new Sudoku();
+        ISudoku sudoku = new Sudoku();
         try {
             Cell[][] cells =sudoku.start(50);
             return sudoku.toJsonArray().toString();
