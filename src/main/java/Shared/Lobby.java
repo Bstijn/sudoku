@@ -1,7 +1,6 @@
 package Shared;
 
 import ClientWS.ILobbyClient;
-import Logic.Cell;
 import Logic.GenerationFaultException;
 import Logic.Sudoku;
 import Server.ILobbyServer;

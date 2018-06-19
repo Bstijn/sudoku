@@ -2,52 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="137735fa-67db-4fc5-af90-3d2e5e682213" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/GUI/ISudokuApp.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Logic/CellTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Logic/SudokuTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Shared/LobbyTest.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClientWS/ClientWebSocket.java" afterPath="$PROJECT_DIR$/src/main/java/ClientWS/ClientWebSocket.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClientWS/IClientPlayer.java" afterPath="$PROJECT_DIR$/src/main/java/ClientWS/IClientPlayer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClientWS/ILobbyClient.java" afterPath="$PROJECT_DIR$/src/main/java/ClientWS/ILobbyClient.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClientWS/IPlayerClient.java" afterPath="$PROJECT_DIR$/src/main/java/ClientWS/IPlayerClient.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClientWS/IplayerSocket.java" afterPath="$PROJECT_DIR$/src/main/java/ClientWS/IplayerSocket.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/GUI/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/StartScherm.java" afterPath="$PROJECT_DIR$/src/main/java/GUI/StartScherm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/SudokuApplication2.java" afterPath="$PROJECT_DIR$/src/main/java/GUI/SudokuApplication2.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Logic/Cell.java" afterPath="$PROJECT_DIR$/src/main/java/Logic/Cell.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Logic/Sudoku.java" afterPath="$PROJECT_DIR$/src/main/java/Logic/Sudoku.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RestServer/Generator.java" afterPath="$PROJECT_DIR$/src/main/java/RestServer/Generator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RestServer/GeneratorRequester.java" afterPath="$PROJECT_DIR$/src/main/java/RestServer/GeneratorRequester.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/IServerWS.java" afterPath="$PROJECT_DIR$/src/main/java/Server/IServerWS.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/ISudokuServer.java" afterPath="$PROJECT_DIR$/src/main/java/Server/ISudokuServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/ServerWebSocket.java" afterPath="$PROJECT_DIR$/src/main/java/Server/ServerWebSocket.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RestServer/tryclass.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Shared/Lobby.java" afterPath="$PROJECT_DIR$/src/main/java/Shared/Lobby.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/Player.java" afterPath="$PROJECT_DIR$/src/main/java/Shared/Player.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/home.fxml" afterPath="$PROJECT_DIR$/src/main/resources/home.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/ClientWebSocket.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/IClientPlayer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/IClientSocket.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/ILobbyClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/IPlayerClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/IplayerSocket.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/IStartScherm.class" afterPath="$PROJECT_DIR$/target/classes/GUI/IStartScherm.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/StartScherm$1.class" afterPath="$PROJECT_DIR$/target/classes/GUI/StartScherm$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/StartScherm$2.class" afterPath="$PROJECT_DIR$/target/classes/GUI/StartScherm$2.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/StartScherm.class" afterPath="$PROJECT_DIR$/target/classes/GUI/StartScherm.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2$1.class" afterPath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2$2.class" afterPath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2$2.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2$3.class" afterPath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2$3.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2.class" afterPath="$PROJECT_DIR$/target/classes/GUI/SudokuApplication2.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Logic/Cell.class" afterPath="$PROJECT_DIR$/target/classes/Logic/Cell.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Logic/Sudoku.class" afterPath="$PROJECT_DIR$/target/classes/Logic/Sudoku.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RestServer/Generator.class" afterPath="$PROJECT_DIR$/target/classes/RestServer/Generator.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RestServer/generatorRequester.class" afterPath="$PROJECT_DIR$/target/classes/RestServer/generatorRequester.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/IServerWS.class" afterPath="$PROJECT_DIR$/target/classes/Server/IServerWS.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/ISudokuServer.class" afterPath="$PROJECT_DIR$/target/classes/Server/ISudokuServer.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/ServerWebSocket.class" afterPath="$PROJECT_DIR$/target/classes/Server/ServerWebSocket.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RestServer/tryclass.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/Shared/Lobby.class" afterPath="$PROJECT_DIR$/target/classes/Shared/Lobby.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Shared/Player.class" afterPath="$PROJECT_DIR$/target/classes/Shared/Player.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/home.fxml" afterPath="$PROJECT_DIR$/target/classes/home.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -119,16 +79,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPlayerClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ClientWS/IPlayerClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Sudoku.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Logic/Sudoku.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -176,15 +126,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lobby.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Lobby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Shared/Lobby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="177">
+              <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
               <folding>
-                <element signature="e#1925#1926#0" expanded="true" />
-                <element signature="e#1950#1951#0" expanded="true" />
+                <element signature="e#1906#1907#0" expanded="true" />
+                <element signature="e#1931#1932#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LobbyTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Shared/LobbyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="49" column="45" lean-forward="false" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,13 +153,14 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Shared/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
               <folding>
                 <element signature="e#939#940#0" expanded="true" />
                 <element signature="e#977#978#0" expanded="true" />
                 <element signature="e#1046#1047#0" expanded="true" />
                 <element signature="e#1099#1100#0" expanded="true" />
                 <element signature="e#1150#1151#0" expanded="true" />
+                <element signature="e#1191#1192#0" expanded="true" />
                 <element signature="e#1224#1225#0" expanded="true" />
                 <element signature="e#1256#1257#0" expanded="true" />
                 <element signature="e#1291#1292#0" expanded="true" />
@@ -263,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/GUI/HomeAble.java" />
         <option value="$PROJECT_DIR$/src/main/java/Logic/Home.java" />
         <option value="$PROJECT_DIR$/src/main/java/Logic/ConnectionException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Logic/HomeAble.java" />
@@ -298,7 +258,6 @@
         <option value="$PROJECT_DIR$/src/main/java/RestServer/GeneratorRequester.java" />
         <option value="$PROJECT_DIR$/src/main/java/GUI/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/Server/IServerWS.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Shared/Lobby.java" />
         <option value="$PROJECT_DIR$/src/main/java/GUI/ISudokuApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/ClientWS/IplayerSocket.java" />
         <option value="$PROJECT_DIR$/src/main/resources/home.fxml" />
@@ -314,6 +273,8 @@
         <option value="$PROJECT_DIR$/src/test/java/Logic/CellTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Logic/Sudoku.java" />
         <option value="$PROJECT_DIR$/src/test/java/Logic/SudokuTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Shared/Lobby.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Shared/LobbyTest.java" />
       </list>
     </option>
   </component>
@@ -476,6 +437,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="Shared" />
       <recent name="Logic" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -502,7 +464,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SudokuTest">
+  <component name="RunManager" selected="JUnit.LobbyTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -549,20 +511,20 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="CellTest.testFill" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LobbyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="Logic.*" />
+          <option name="PATTERN" value="Shared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="sudoku" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Logic" />
-      <option name="MAIN_CLASS_NAME" value="Logic.CellTest" />
-      <option name="METHOD_NAME" value="testFill" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="Shared" />
+      <option name="MAIN_CLASS_NAME" value="Shared.LobbyTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -693,6 +655,29 @@
         </option>
       </MavenSettings>
     </configuration>
+    <configuration name="sonar" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="sonar:sonar" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -733,21 +718,22 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Maven.Run" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.CellTest.testFill" />
+    <list size="7">
+      <item index="0" class="java.lang.String" itemvalue="Maven.sonar" />
+      <item index="1" class="java.lang.String" itemvalue="Maven.Run" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.CellTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.SudokuTest.setUp" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.SudokuTest.TestStart" />
       <item index="5" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.LobbyTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SudokuTest.setUp" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SudokuTest.TestStart" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CellTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CellTest.testFill" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.LobbyTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SudokuTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SudokuTest.setUp" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.SudokuTest.TestStart" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CellTest" />
       </list>
     </recent_temporary>
   </component>
@@ -784,16 +770,19 @@
       <workItem from="1528873729834" duration="711000" />
       <workItem from="1528874699253" duration="8710000" />
       <workItem from="1529264550226" duration="1310000" />
-      <workItem from="1529309767477" duration="17578000" />
+      <workItem from="1529309767477" duration="19476000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="LobbyTest - 2018.06.19 at 12h 24m 38s.xml">
+      <configuration name="LobbyTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LobbyTest - 2018.06.19 at 12h 27m 12s.xml">
+      <configuration name="LobbyTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="SudokuTest - 2018.06.19 at 11h 54m 32s.xml">
       <configuration name="SudokuTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SudokuTest_TestStart - 2018.06.19 at 11h 51m 03s.xml">
-      <configuration name="SudokuTest.TestStart" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SudokuTest_TestStart - 2018.06.19 at 11h 51m 26s.xml">
       <configuration name="SudokuTest.TestStart" configurationId="JUnit" />
@@ -813,15 +802,12 @@
     <history-entry file="SudokuTest_TestStart - 2018.06.19 at 11h 53m 14s.xml">
       <configuration name="SudokuTest.TestStart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SudokuTest_setUp - 2018.06.19 at 11h 49m 10s.xml">
-      <configuration name="SudokuTest.setUp" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SudokuTest_setUp - 2018.06.19 at 11h 54m 29s.xml">
       <configuration name="SudokuTest.setUp" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126827000" />
+    <option name="totallyTimeSpent" value="128725000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -846,7 +832,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.58270675" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.41729322" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.41729322" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -944,13 +930,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/websocket/websocket-common/9.2.7.v20150116/websocket-common-9.2.7.v20150116.jar!/org/eclipse/jetty/websocket/common/WebSocketSession.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/websocket/websocket-common/9.2.7.v20150116/websocket-common-9.2.7.v20150116.jar!/org/eclipse/jetty/websocket/common/extensions/ExtensionStack.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1248,11 +1227,11 @@
           <folding>
             <element signature="method#CellMousePressed#0;class#SudokuApplication2#0" expanded="false" />
             <element signature="method#highlight#0;class#SudokuApplication2#0" expanded="false" />
-            <element signature="e#4677#4678#0" expanded="true" />
-            <element signature="e#4725#4726#0" expanded="true" />
+            <element signature="e#4677#4678#0" expanded="false" />
+            <element signature="e#4725#4726#0" expanded="false" />
             <element signature="method#backgroundpressed#0;class#SudokuApplication2#0" expanded="false" />
-            <element signature="e#6533#6534#0" expanded="true" />
-            <element signature="e#6581#6582#0" expanded="true" />
+            <element signature="e#6533#6534#0" expanded="false" />
+            <element signature="e#6581#6582#0" expanded="false" />
             <element signature="method#gameEnd#0;class#SudokuApplication2#0" expanded="false" />
           </folding>
         </state>
@@ -1263,7 +1242,7 @@
         <state relative-caret-position="489">
           <caret line="133" column="25" lean-forward="false" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="25" />
           <folding>
-            <element signature="e#733#747#0" expanded="true" />
+            <element signature="e#733#747#0" expanded="false" />
             <element signature="method#cbChanged#0;class#StartScherm#0" expanded="false" />
           </folding>
         </state>
@@ -1282,40 +1261,6 @@
         <state relative-caret-position="315">
           <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Shared/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1352#1353#0" expanded="true" />
-            <element signature="e#1379#1380#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1453#1454#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
-            <element signature="e#1548#1549#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2028#2029#0" expanded="true" />
-            <element signature="e#2076#2077#0" expanded="true" />
-            <element signature="e#2106#2107#0" expanded="true" />
-            <element signature="e#2335#2336#0" expanded="true" />
-            <element signature="e#2378#2379#0" expanded="true" />
-            <element signature="e#2425#2426#0" expanded="true" />
-            <element signature="e#2468#2469#0" expanded="true" />
-            <element signature="e#2519#2520#0" expanded="true" />
-            <element signature="e#2557#2558#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1413,14 +1358,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Shared/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+          <folding>
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1150#1151#0" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1379#1380#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1453#1454#0" expanded="true" />
+            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#1548#1549#0" expanded="true" />
+            <element signature="e#1991#1992#0" expanded="true" />
+            <element signature="e#2028#2029#0" expanded="true" />
+            <element signature="e#2076#2077#0" expanded="true" />
+            <element signature="e#2106#2107#0" expanded="true" />
+            <element signature="e#2335#2336#0" expanded="true" />
+            <element signature="e#2378#2379#0" expanded="true" />
+            <element signature="e#2425#2426#0" expanded="true" />
+            <element signature="e#2468#2469#0" expanded="true" />
+            <element signature="e#2519#2520#0" expanded="true" />
+            <element signature="e#2557#2558#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Shared/Lobby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="177">
+          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
           <folding>
-            <element signature="e#1925#1926#0" expanded="true" />
-            <element signature="e#1950#1951#0" expanded="true" />
+            <element signature="e#1906#1907#0" expanded="true" />
+            <element signature="e#1931#1932#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Shared/LobbyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="49" column="45" lean-forward="false" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
