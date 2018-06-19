@@ -41,15 +41,6 @@ public class Lobby implements ILobbyServer, ILobbyClient {
         sudoku.start(50);
     }
 
-    public void fillCell(Session session, int number, Cell cell){
-        if(sudoku.filCell(number,cell)){
-            server.sendFillToOthers(session,number,cell);
-        }
-        else{
-            server.sendInvalidToFiller(session);
-        }
-
-    }
     @Override
     public String toString(){
         return name + " [" + currentPlayers + "]";

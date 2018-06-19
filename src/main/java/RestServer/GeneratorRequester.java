@@ -28,7 +28,7 @@ public class GeneratorRequester {
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(httpGet);) {
             HttpEntity entity = response.getEntity();
-            final String entityString = EntityUtils.toString(entity);
+            final String entityString = EntityUtils.toString(entity); System.out.println(entityString);
             return buildSudoku(entityString);
         } catch (IOException e) {
             // Evil, pure evil this solution: ....
@@ -42,7 +42,8 @@ public class GeneratorRequester {
         Cell[][] grid = new Cell[9][9];
         for (int i = 0;i< json.size();i++){
             Cell cell = new Cell(json.get(i).getAsJsonObject());
-            grid[cell.getPosY()-1][cell.getPosX()-1] = cell;
+            System.out.println("Y: " + cell.getPosY() +  "X:" + cell.getPosX());
+            grid[cell.getPosY()][cell.getPosX()] = cell;
         }
         ISudokuServer sudoku = new Sudoku(grid);
         return sudoku;

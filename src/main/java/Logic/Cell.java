@@ -13,15 +13,13 @@ public class Cell {
     private boolean filledByPlayer = false;
     private String imageString = "empty.png";
     private String highlightImageString = "emptyHighlight.png";
-
+    //CONSTRUCTOR USED BY SUDOKU LOGIC MOSTLY USED BY REST API
     public Cell(int posX, int posY, int number, boolean empty){
         this.posX=posX;
         this.posY=posY;
         this.number = number;
         this.empty = empty;
     }
-
-
     //CONSTRUCTOR THAT WILL CREATE A CELL OUT OF A JSONOBJECT.
     public Cell(JsonObject celljson){
         posX = celljson.get("posX").getAsInt();
@@ -34,9 +32,6 @@ public class Cell {
         highlightImageString = celljson.get("highlightImageString").getAsString();
     }
 
-
-
-
     public int getNumber() {
         return number;
     }
@@ -44,7 +39,7 @@ public class Cell {
     public boolean isEmpty() {
         return empty;
     }
-
+    //Will replace the number and update the image strings and sets empty to false
     public void fill(int number){
         this.number = number;
         empty = false;
@@ -66,7 +61,7 @@ public class Cell {
         highlightImageString = "emptyHighlight.png";
         imageString = "empty.png";
     }
-
+    //will set it fillable for player which means the image strings will change so the GUI will not show the numbers
     public void setFillableForPlayer(){
         fillableForPlayer = true;
         highlightImageString = "emptyHighlight.png";
@@ -77,7 +72,7 @@ public class Cell {
     public boolean isFillableForPlayer(){
         return fillableForPlayer;
     }
-
+    //method that will check if the number is correct when the cell is filledbyplayer not by sudoku logic
     public boolean fillIn(int number){
         if(number != this.number){
             return false;

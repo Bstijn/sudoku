@@ -2,6 +2,7 @@ package GUI;
 import ClientWS.IPlayerClient;
 import Logic.*;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +23,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SudokuApplication2 extends Application implements Initializable, Guiable
+public class SudokuApplication2 extends Controller implements Initializable, Guiable, ISudokuApp
 {
     public Pane sudokuPane;
     public Pane paneNrs;
@@ -35,25 +36,8 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
     private int lastY;
     private  Cell selectedCell = null;
     private Rectangle lastHighlighted = null;
-    private IPlayerClient player;
 
     private int selectednr;
-
-
-    @Override
-    public void start(final Stage primaryStage) throws Exception
-    {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("sudoku.fxml"));
-        primaryStage.setTitle("Logic.Sudoku");
-        primaryStage.setScene(new Scene(root, 350,600));
-        primaryStage.show();
-
-    }
-
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
 
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -125,11 +109,12 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
 
         }
         sudokuPane.getChildren().add(root);
-        try {
-            fillInSquares(sudoku.start(50));
-        } catch (GenerationFaultException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            fillInSquares(sudoku.start(50));
+//        } catch (GenerationFaultException e) {
+//            e.printStackTrace();
+//        }
+        this.player.setGuiGame(this);
     }
 
     private void CellMousePressed(MouseEvent event, int xpos, int ypos) {
@@ -163,29 +148,50 @@ public class SudokuApplication2 extends Application implements Initializable, Gu
 
 
     private void nrSelect(int nr){
-        if(selectedCell != null) {
-            if(sudoku.filCell(nr, selectedCell)){
-                rectangles[selectedCell.getPosX()][selectedCell.getPosY()].setFill(new ImagePattern(new Image(selectedCell.getHighlightImageString())));
+        player.fillCell(nr,selectedCell);
+    }
+    @Override
+    public void fillCell(Cell cell){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                sudoku.filCell(cell.getNumber(),sudoku.getCells()[cell.getPosY()][cell.getPosX()]);
+                rectangles[cell.getPosX()][cell.getPosY()].setFill(new ImagePattern(new Image(cell.getHighlightImageString())));
             }
-            else{
+        });
+    }
+    @Override
+    public void filledWrongNumber(){
+        System.out.println("FilledWrongNumber method called");
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning Dialog");
                 alert.setHeaderText("The number you want to fill in is wrong.");
                 alert.setContentText("Be careful with the next step!");
-
                 alert.showAndWait();
             }
-        }
+        });
+
+
     }
 
 
-    private void fillInSquares(Cell[][] grid) {
-       for(Cell[] cs : grid){
-           for(Cell c : cs){
-               ImagePattern pattern = new ImagePattern(new Image(c.getImageString()));
-               rectangles[c.getPosX()][c.getPosY()].setFill(pattern);
-           }
-       }
+@Override
+    public void fillInSquares(Cell[][] grid) {
+        sudoku = new Sudoku(grid);
+    Platform.runLater(new Runnable() {
+        @Override
+        public void run() {
+            for (Cell[] cs : grid) {
+                for (Cell c : cs) {
+                    ImagePattern pattern = new ImagePattern(new Image(c.getImageString()));
+                    rectangles[c.getPosX()][c.getPosY()].setFill(pattern);
+                }
+            }
+        }
+        });
     }
 
     public void backgroundpressed(MouseEvent mouseEvent) {

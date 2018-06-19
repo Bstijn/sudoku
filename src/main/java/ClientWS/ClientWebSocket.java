@@ -1,6 +1,9 @@
 package ClientWS;
 
+import Logic.Cell;
 import Shared.Lobby;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -34,13 +37,33 @@ public class ClientWebSocket implements IClientSocket,IClientPlayer {
         server = session;
         System.out.println("connect to server");
     }
-
+    //TODO IMPLEMENT ALL THE KINDS OF RECIEVING
     @OnMessage
     public void onMessage(String message, Session session) {
+        System.out.println(message);
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         if(keyInJson(json,"InitLobbies")){
             fillInitLobbies(json);
         }
+        else if(keyInJson(json,"Join")){
+            fillSudoku(json);
+        }
+        else if(keyInJson(json,"Wrong")){
+            player.filledWrong();
+        }
+        else if(keyInJson(json,"Fill")){
+            Cell cell = new Cell(json);
+            player.fillCell(cell);
+        }
+    }
+
+    private void fillSudoku(JsonObject json) {
+        Cell[][] grid = new Cell[9][9];
+        for (int i =0; i<81;i++) {
+            Cell c = new Cell(json.get("GRID").getAsJsonArray().get(i).getAsJsonObject());
+            grid[c.getPosY()][c.getPosX()] = c;
+        }
+    player.updateSudoku(grid);
     }
 
     private void fillInitLobbies(JsonObject json) {
@@ -128,6 +151,30 @@ public class ClientWebSocket implements IClientSocket,IClientPlayer {
         json.addProperty("Mode","PW");
         json.addProperty("Name",name);
         json.addProperty("Password",password);
+        try {
+            server.getBasicRemote().sendText(json.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void sendFill(int nr, Cell selectedCell) {
+        JsonObject json = new JsonObject();
+        json.addProperty("Fill",nr);
+        json.add("Cell",new JsonParser().parse(new Gson().toJson(selectedCell)).getAsJsonObject());
+        try {
+            server.getBasicRemote().sendText(json.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void joinLobby(int id) {
+        JsonObject json = new JsonObject();
+        json.addProperty("Join",true);
+        json.addProperty("Id",id);
         try {
             server.getBasicRemote().sendText(json.toString());
         } catch (IOException e) {

@@ -24,7 +24,8 @@
          <children>
             <Label layoutX="63.0" layoutY="4.0" text="Public Games" />
             <ListView fx:id="lvPublicGames" layoutX="63.0" layoutY="23.0" prefHeight="344.0" prefWidth="249.0" />
-            <Button fx:id="connectbutton" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#refreshClick" text="Button" />
+            <Button fx:id="connectbutton" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#refreshClick" text="refresh lobbies" />
+            <Button fx:id="join" layoutX="265.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#joinLobby" text="Join" />
          </children>
       </Pane>
    </children>

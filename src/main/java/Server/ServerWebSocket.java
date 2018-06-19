@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ServerWebSocket implements IServerWS {
     private static final ArrayList<Player> players = new ArrayList<Player>();
     private static final ArrayList<ILobbyServer> lobbies = new ArrayList<ILobbyServer>();
-    private int nextLobbyid = 0;
+    private static int nextLobbyid = 0;
     private static final GeneratorRequester requester = new GeneratorRequester();
 
     @OnOpen
@@ -41,16 +41,18 @@ public class ServerWebSocket implements IServerWS {
         } else if (keyInJson(json, "Join")) {
             joinLobby(session, json);
         }
+        else if(keyInJson(json,"Fill")){
+            sendFillToOthers(session,json.get("Fill").getAsInt(),json.get("Cell").getAsJsonObject());
+        }
     }
 
     private void joinLobby(Session session, JsonObject json) {
         IPlayerServer curplayer = getPlayer(session);
         int id = json.get("Id").getAsInt();
-        String password = json.get("Password").getAsString();
+       // String password = json.get("Password").getAsString();
         ILobbyServer lobby = getLobbyFromId(id);
-        if (lobby.getPassword().equals(password)) {
-            lobby.addPlayer(curplayer);
-        }
+        lobby.addPlayer(curplayer);
+        sendJoinConfirm(lobby,curplayer);
     }
 
     private ILobbyServer getLobbyFromId(int id) {
@@ -82,6 +84,22 @@ public class ServerWebSocket implements IServerWS {
             lobbies.add(lobby);
         }
         updateLobbies();
+        sendJoinConfirm(lobby,getPlayer(session));
+    }
+
+    private void sendJoinConfirm(ILobbyServer lobby,IPlayerServer player) {
+        JsonObject json = new JsonObject();
+        json.addProperty("Join",true);
+        json.addProperty("Id",lobby.getId());
+        json.add("GRID",lobby.getSudoku().toJsonArray());
+        //TODO IMPLEMENT EN SEND TO PLAYER THAT JUST JOINED
+        lobby.getId();
+        try {
+            player.getSession().getBasicRemote().sendText(json.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void updateLobbies() {
@@ -176,7 +194,7 @@ public class ServerWebSocket implements IServerWS {
     }
 
     @Override//TODO FINISH
-    public void sendFillToOthers(Session session,int Number, Cell cell) {
+    public void sendFillToOthers(Session session,int Number, JsonObject cellJson) {
         IPlayerServer player = getPlayer(session);
         ILobbyServer lobby = null;
         for(ILobbyServer l : lobbies){
@@ -185,6 +203,7 @@ public class ServerWebSocket implements IServerWS {
                 break;
             }
         }
+        Cell cell = getCellFromJson(lobby,cellJson);
         if(lobby.getSudoku().filCell(Number,cell)) {
             JsonObject json = new JsonParser().parse(new Gson().toJson(cell)).getAsJsonObject();
             json.addProperty("Fill",true);
@@ -200,6 +219,21 @@ public class ServerWebSocket implements IServerWS {
             sendInvalidToFiller(session);
         }
     }
+
+    private Cell getCellFromJson(ILobbyServer lobby, JsonObject cellJson) {
+        Cell[][] grid=lobby.getSudoku().getCells();
+        Cell cell = null;
+        for (Cell[] cs : grid){
+            for(Cell c : cs){
+                if(c.getPosX() == cellJson.get("posX").getAsInt() && c.getPosY() == cellJson.get("posY").getAsInt()){
+                    cell = c;
+                    return cell;
+                }
+            }
+        }
+        return null;
+    }
+
 
     @Override
     public void sendInvalidToFiller(Session session) {

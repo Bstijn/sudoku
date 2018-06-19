@@ -15,21 +15,21 @@ public abstract class Controller{
 
     protected IClientSocket client;
     protected Scene scene;
-    protected IPlayerClient player;
+    protected static IPlayerClient player;
 
-    public void changeScene(String fxml, Player player) throws IOException {
+    public void changeScene(String fxml, IPlayerClient player) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource( fxml + ".fxml"));
         Parent root = loader.load();
-        Controller controller = loader.getController();
         scene = new Scene(root);
         Client.stage.setTitle(fxml);
         Client.stage.setScene(scene);
         Client.stage.centerOnScreen();
         Client.stage.show();
-        controller.setClient(player);
+        this.player = player;
+
     }
 
-    public void setClient(Player player) {
+    public void setClient(IPlayerClient player) {
         this.player = player;
     }
 

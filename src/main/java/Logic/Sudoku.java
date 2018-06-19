@@ -2,6 +2,10 @@ package Logic;
 
 import GUI.Guiable;
 import Server.ISudokuServer;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
@@ -106,16 +110,11 @@ public class Sudoku implements ISudoku, ISudokuServer {
                 //}
             }
         }
-        //@TODO Step 1: While loop with difficulty
-        //@TODO Step 2: Select a random cell[0-8][0-8]
-        //@TODO Step 3: Check if this cell can be removed and if the sudoku is still solveable
     }
 
     private boolean checkRemovability(Cell selectedCell) {
     throw new NotImplementedException();
     }
-
-
     //method that will generate the top row with the numbers 1-9
     private void generateTopRow(){
         int i = 0;
@@ -268,6 +267,22 @@ public class Sudoku implements ISudoku, ISudokuServer {
         return succes;
     }
 
+    @Override
+    public JsonArray toJsonArray() {
+        JsonArray grid = new JsonArray();
+        JsonObject json = new JsonObject();
+        for (Cell[] cs : cells){
+            for(Cell c : cs){
+                System.out.println(new Gson().toJson(c));
+                int posx = c.getPosX();
+                int posy = c.getPosY();
+                JsonObject cellJson = new JsonParser().parse(new Gson().toJson(c)).getAsJsonObject();
+                grid.add(cellJson);
+            }
+        }
+        return grid;
+    }
+
     private void checkGameFinish() {
         for (Cell[] cs :cells) {
             for(Cell c : cs){
@@ -276,7 +291,7 @@ public class Sudoku implements ISudoku, ISudokuServer {
                 }
             }
         }
-        gui.gameEnd();
+        //gui.gameEnd();
     }
 }
 

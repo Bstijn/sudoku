@@ -16,15 +16,18 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StartScherm extends Application implements Initializable, IStartScherm {
+public class StartScherm extends Controller implements Initializable, IStartScherm {
+    public Button join;
     private ArrayList<ILobbyClient> lobbies = new ArrayList<ILobbyClient>();
 
     public Button connectbutton;
     public TextField tfLobbyName;
+
     private enum createMode {publicgame,publicpasswordgame,solo};
     private createMode creationGame = createMode.publicgame;
     public Pane panelCreateGame;
@@ -34,24 +37,8 @@ public class StartScherm extends Application implements Initializable, IStartSch
     public Label lblPassword;
     public Pane paneLobbys;
     public ListView lvPublicGames;
-    private IPlayerClient player;
-    private static Stage stage;
-    private static Parent root;
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
-        primaryStage.setTitle("LobbyBrowser");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-        this.stage =primaryStage;
-        this.root = root;
-    }
 
     public void refreshClick(MouseEvent mouseEvent) {
-        for (ILobbyClient l : lobbies){
-            lvPublicGames.getItems().clear();
-        }
         player.getLobbiesFromServer();
     }
 
@@ -68,6 +55,8 @@ public class StartScherm extends Application implements Initializable, IStartSch
             cbChanged();
         });
         final IStartScherm me = (IStartScherm)this;
+        player = new Player(this);
+        player.setIstartscherm(me);
     }
 
     public void createLobby(MouseEvent mouseEvent) {
@@ -80,6 +69,11 @@ public class StartScherm extends Application implements Initializable, IStartSch
         }
         else if(creationGame == createMode.publicpasswordgame){
             player.createLobby(tfLobbyName.getText(),tfPassword.getText());
+        }
+        try {
+            changeScene("sudoku",player);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -124,6 +118,21 @@ public class StartScherm extends Application implements Initializable, IStartSch
                 }
             }
         });
+    }
+
+    public void joinLobby(MouseEvent mouseEvent) {
+        ILobbyClient lobby = (ILobbyClient) lvPublicGames.getSelectionModel().getSelectedItem();
+        if(lobby == null){
+            return;
+        }
+        else{
+            try {
+                changeScene("sudoku",player);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            player.joinLobby(lobby.getId());
+        }
     }
 
 

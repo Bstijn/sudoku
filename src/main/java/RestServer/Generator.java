@@ -22,19 +22,8 @@ public class Generator {
     public String test() {
         Sudoku sudoku = new Sudoku();
         try {
-            JsonArray grid = new JsonArray();
             Cell[][] cells =sudoku.start(50);
-            JsonObject json = new JsonObject();
-            for (Cell[] cs : cells){
-                for(Cell c : cs){
-                    System.out.println(new Gson().toJson(c));
-                    int posx = c.getPosX();
-                    int posy = c.getPosY();
-                    JsonObject cellJson = new JsonParser().parse(new Gson().toJson(c)).getAsJsonObject();
-                    grid.add(cellJson);
-                }
-            }
-            return grid.toString();
+            return sudoku.toJsonArray().toString();
 
         } catch (GenerationFaultException e) {
             e.printStackTrace();
