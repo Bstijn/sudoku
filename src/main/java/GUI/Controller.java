@@ -1,7 +1,6 @@
 package GUI;
 
 import ClientWS.IPlayerClient;
-import Shared.Player;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +14,7 @@ public abstract class Controller{
     protected Scene scene;
     protected static IPlayerClient player;
 
-    public void changeScene(String fxml, IPlayerClient player) throws IOException {
+    protected void changeScene(String fxml, IPlayerClient player) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource( fxml + ".fxml"));
         Parent root = loader.load();
         scene = new Scene(root);

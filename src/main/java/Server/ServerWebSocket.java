@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 @ServerEndpoint(value = "/sudoku")
 public class ServerWebSocket {
-    private static final ArrayList<Player> players = new ArrayList<Player>();
-    private static final ArrayList<ILobbyServer> lobbies = new ArrayList<ILobbyServer>();
+    private static final ArrayList<Player> players = new ArrayList<>();
+    private static final ArrayList<ILobbyServer> lobbies = new ArrayList<>();
     private static int nextLobbyid = 0;
     private static final GeneratorRequester requester = new GeneratorRequester();
 
@@ -48,7 +48,6 @@ public class ServerWebSocket {
     private void joinLobby(Session session, JsonObject json) {
         IPlayerServer curplayer = getPlayer(session);
         int id = json.get("Id").getAsInt();
-       // String password = json.get("Password").getAsString();
         ILobbyServer lobby = getLobbyFromId(id);
         lobby.addPlayer(curplayer);
         sendJoinConfirm(lobby,curplayer);
@@ -67,7 +66,6 @@ public class ServerWebSocket {
     private void createLobby(JsonObject json, Session session,int id) {
         ILobbyServer lobby = null;
         ISudokuServer sudoku = requester.requestSudoku();
-        System.out.println(json.get("Mode").getAsString());
         if(json.get("Mode").getAsString().equals("Solo")){
             lobby = new Lobby("null","null",id,1);
         }
@@ -91,7 +89,6 @@ public class ServerWebSocket {
         json.addProperty("Join",true);
         json.addProperty("Id",lobby.getId());
         json.add("GRID",lobby.getSudoku().toJsonArray());
-        //TODO IMPLEMENT EN SEND TO PLAYER THAT JUST JOINED
         lobby.getId();
         try {
             player.getSession().getBasicRemote().sendText(json.toString());

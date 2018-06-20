@@ -9,5 +9,9 @@ public interface IPlayerServer {
      */
     void namePlayer(String name);
 
+    /**
+     * will return the session that belongs to the player.
+     * @return
+     */
     Session getSession();
 }

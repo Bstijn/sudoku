@@ -164,7 +164,6 @@ public class SudokuApplication2 extends Controller implements Initializable, Gui
     }
 
     public void backgroundpressed(MouseEvent mouseEvent) {
-        updateGuiElements();
         if(lastHighlighted != null){
             unHighLightLast();
         }

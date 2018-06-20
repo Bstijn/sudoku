@@ -15,13 +15,13 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 public class GeneratorRequester {
-    private static final String query = "http://localhost:8093/generator/give";
+    private static final String QUERY = "http://localhost:8093/generator/give";
     public GeneratorRequester(){
     //empty constructor for now maybe filled in future
     }
 
     public ISudokuServer requestSudoku(){
-        HttpGet httpGet = new HttpGet(query);
+        HttpGet httpGet = new HttpGet(QUERY);
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(httpGet);) {
